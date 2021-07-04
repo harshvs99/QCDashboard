@@ -8,15 +8,23 @@ CREATE TABLE `summary` (
   PRIMARY KEY (`interval`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE `zone`(
+	`id` int(11) NOT NULL DEFAULT '0',
+    `name` varchar(50) NOT NULL,
+    `state` int(11) DEFAULT NULL,
+    PRIMARY KEY (`id`),
+	KEY `state` (`state`)
+) ENGINE = InnoDB DEFAULT CHARSET = latin1;
 
 CREATE TABLE `state` (
   `id` int(11) NOT NULL DEFAULT '0',
   `name` varchar(50) NOT NULL,
   `zone` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `zone` (`zone`),state
+  KEY `zone` (`zone`),
   CONSTRAINT `state_ibfk_1` FOREIGN KEY (`zone`) REFERENCES `zone` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 CREATE TABLE `city` (
   `id` int(11) NOT NULL DEFAULT '0',
   `name` varchar(50) NOT NULL,
@@ -25,6 +33,7 @@ CREATE TABLE `city` (
   KEY `state` (`state`),
   CONSTRAINT `city_ibfk_1` FOREIGN KEY (`state`) REFERENCES `state` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 CREATE TABLE `store` (
   `id` int(11) NOT NULL DEFAULT '0',
   `client_id` varchar(100) NOT NULL,
@@ -37,11 +46,13 @@ CREATE TABLE `store` (
   KEY `city` (`city`),
   CONSTRAINT `store_ibfk_1` FOREIGN KEY (`city`) REFERENCES `city` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 CREATE TABLE `brand` (
   `id` int(11) NOT NULL DEFAULT '0',
   `name` varchar(50) NOT NULL,
   `brandImage` varchar(150) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 CREATE TABLE `dashboard` (
   `S_No` int(11) NOT NULL AUTO_INCREMENT,
   `order_id` varchar(50) DEFAULT NULL,
@@ -82,6 +93,7 @@ CREATE TABLE `dashboard` (
   `interval` int(8) NOT NULL DEFAULT '0',
   PRIMARY KEY (`S_No`)
 ) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=latin1;
+
 CREATE TABLE `live` (
   `mac` varchar(17) NOT NULL,
   `machine` int(11) NOT NULL,
@@ -115,6 +127,7 @@ CREATE TABLE `live` (
   `State` varchar(25) NOT NULL,
   `QC_Result` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 CREATE TABLE `machineHealth` (
   `S_No` int(11) NOT NULL AUTO_INCREMENT,
   `mac` varchar(17) NOT NULL,
@@ -132,7 +145,8 @@ CREATE TABLE `machineHealth` (
   `clientServer` tinyint(4) NOT NULL,
   `State` varchar(15) NOT NULL,
   PRIMARY KEY (`S_No`)
-) ENGINE=InnoDB AUTO_INCREMENT=3828 DEFAULT CHARSET=latin1
+) ENGINE=InnoDB AUTO_INCREMENT=3828 DEFAULT CHARSET=latin1;
+
 CREATE TABLE `user` (
   `id` int(11) NOT NULL DEFAULT '0',
   `username` varchar(50) NOT NULL,
@@ -146,6 +160,20 @@ CREATE TABLE `user` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `store` (
+  `id` int(11) NOT NULL DEFAULT '0',
+  `client_id` varchar(100) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `city` int(11) NOT NULL,
+  `address` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `city` (`city`),
+  CONSTRAINT `store_ibfk_1` FOREIGN KEY (`city`) REFERENCES `city` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 CREATE TABLE `user_store_mapping` (
   `user` int(11) NOT NULL,
   `store` int(11) NOT NULL,
@@ -155,7 +183,7 @@ CREATE TABLE `user_store_mapping` (
   KEY `user` (`user`),
   CONSTRAINT `user_store_mapping_ibfk_1` FOREIGN KEY (`store`) REFERENCES `store` (`id`),
   CONSTRAINT `user_store_mapping_ibfk_2` FOREIGN KEY (`user`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 CREATE TABLE `machine` (
   `id` int(11) NOT NULL DEFAULT '0',
   `store` int(11) NOT NULL,
