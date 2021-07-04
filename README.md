@@ -5,6 +5,7 @@
 [![GitHub license](https://img.shields.io/github/license/harshvs99/robotARM)](https://github.com/harshvs99/QCDashboard/blob/master/LICENSE)
 
 # QCDashboard
+The Quality Check Dashboard, is for client-side data summarisation and reporting for the Food Quality Check device (built as a complete food quality control solution). 
 <!-- Robotic Spatial Positioning Arm built on ARM Cortex M4 Micro-controller using Servo Motors with Manual and Automated usage
 
 ## Physical Model
