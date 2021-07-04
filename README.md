@@ -8,7 +8,7 @@
 The Quality Check Dashboard, is for client-side data summarisation and reporting for the Food Quality Check device (built as a complete food quality control solution). 
 
 ## Problem Statement
-The project was to build a server-side backend code for one of India's largest cloud kitches and a pilot mid-day meal programme. With several SQC machines deployed, generating over 100s of rows of data per hour, the challenge was to collate the data logically to further allow business logic questions to be asked.
+The project was to build a server-side backend code for one of India's largest cloud kitchen and a pilot mid-day meal program. With several SQC machines deployed, generating over 100s of rows of data per hour, the challenge was to collate the data logically to further allow business logic questions to be asked.
 
 Further, the scope of the project involved
 - Integrating various APIs to allow for effective summarizations over specified time periods.
