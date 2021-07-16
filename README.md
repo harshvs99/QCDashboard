@@ -2,7 +2,7 @@
 <!-- [![GitHub issues](https://img.shields.io/github/issues/harshvs99/robotARM)](https://github.com/harshvs99/QCDashboard/issues)
 <!-- [![GitHub forks](https://img.shields.io/github/forks/harshvs99/robotARM)](https://github.com/harshvs99/QCDashboard/network) -->
 <!-- [![GitHub stars](https://img.shields.io/github/stars/harshvs99/robotARM)](https://github.com/harshvs99/QCDashboard/stargazers)
-[![GitHub license](https://img.shields.io/github/license/harshvs99/robotARM)](https://github.com/harshvs99/QCDashboard/blob/master/LICENSE) --> -->
+[![GitHub license](https://img.shields.io/github/license/harshvs99/robotARM)](https://github.com/harshvs99/QCDashboard/blob/master/LICENSE) --> 
 
 The Quality Check Dashboard, is for client-side data summarisation and reporting for the Food Quality Check device (built as a complete food quality control solution). 
 
